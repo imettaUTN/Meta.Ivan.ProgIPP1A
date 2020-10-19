@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int contarCaracteres(char cadena[], char caracter);
-float aplicarDescuento(float precio);
-void makeSwap(eNotebook notes[], int i, int j);
-void OrdenarVectorBurbuja(eNotebook notes[], int tam);
 
 typedef struct
 {
@@ -15,7 +11,13 @@ typedef struct
     float precio;
 } eNotebook;
 
-eNotebook vNote[] = {{1,"aa","C",100.0},{5,"cc","D"150.0},{4,"bb","A",250.0}};
+
+int contarCaracteres(char cadena[], char caracter);
+float aplicarDescuento(float precio);
+void makeSwap(eNotebook notes[], int i, int j);
+void OrdenarVectorBurbuja(eNotebook notes[], int tam);
+
+eNotebook vNote[] = {{1,"aa","M",100},{1,"aa","M",100},{1,"aa","M",100}};
 int main()
 {
     char nomb1[] = "Hooola";
@@ -55,7 +57,7 @@ void OrdenarVectorBurbuja(eNotebook notes[], int tam)
     {
         for(int j = i+1; j <tam; j++)
         {
-            if(strcmp(notes[i].marca,notes[j]) > 0 || strcmp(notes[i].marca,notes[j]) == 0 && notes[i].precio > notes[j].precio)
+            if(strcmp(notes[i].marca,notes[j].marca) > 0 || (strcmp(notes[i].marca,notes[j].marca) == 0 && notes[i].precio > notes[j].precio))
             {
                 makeSwap(notes,i,j);
             }
